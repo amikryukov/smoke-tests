@@ -33,6 +33,10 @@
     <beans:import resource="defaults.config.xml"/>
     <beans:import resource="invokers/invokers.conf.xml"/>
 
+    <beans:bean id="endpointConfigurator" class="group.id.EndpointConfigurator">
+        <beans:property name="urls" value="${test.service.endpoints}"/>
+    </beans:bean>
+
     <scenario id="pageScenario" xsi:type="scenario-query-pool">
         <query-distributor xsi:type="query-distributor-round-robin"/>
         <invoker xsi:type="invoker-class" class="group.id.invoker.PageVisitorInvoker"/>
